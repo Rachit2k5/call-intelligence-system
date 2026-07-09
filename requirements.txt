@@ -1,1 +1,9 @@
--r project/requirements.txt
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+xgboost
+fastapi
+uvicorn
+joblib
+python-multipart
