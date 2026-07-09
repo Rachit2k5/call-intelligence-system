@@ -1,0 +1,55 @@
+name: Build and publish Docker image
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download model artifacts (optional)
+        if: ${{ secrets.MODEL_ARTIFACTS_URL != '' }}
+        run: |
+          echo "Downloading model artifacts from MODEL_ARTIFACTS_URL"
+          mkdir -p models
+          curl -fsSL "${{ secrets.MODEL_ARTIFACTS_URL }}" -o /tmp/models.tar.gz
+          tar -xzf /tmp/models.tar.gz -C .
+          ls -la models || true
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/calliq:latest
+            ghcr.io/${{ github.repository_owner }}/calliq:${{ github.sha }}
+
+      - name: Trigger Render deploy (optional)
+        if: ${{ secrets.RENDER_API_KEY != '' }}
+        run: |
+          echo "Triggering Render deploy for service ${{ secrets.RENDER_SERVICE_ID }}"
+          curl -s -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -d '{"clearCache":true}'
