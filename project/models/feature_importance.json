@@ -1,0 +1,62 @@
+[
+  {
+    "feature": "campaign",
+    "importance": 0.11320515188959303
+  },
+  {
+    "feature": "job_management",
+    "importance": 0.07958033687759028
+  },
+  {
+    "feature": "total_contacts",
+    "importance": 0.07093610799013869
+  },
+  {
+    "feature": "contacted_before",
+    "importance": 0.06730878206850861
+  },
+  {
+    "feature": "month_sep",
+    "importance": 0.06675739845051708
+  },
+  {
+    "feature": "loan_yes",
+    "importance": 0.06444757742017916
+  },
+  {
+    "feature": "engagement_score",
+    "importance": 0.06391401648409606
+  },
+  {
+    "feature": "previous_success",
+    "importance": 0.06200008272080853
+  },
+  {
+    "feature": "poutcome_success",
+    "importance": 0.06200008272080853
+  },
+  {
+    "feature": "previous",
+    "importance": 0.059792666594698736
+  },
+  {
+    "feature": "job_housemaid",
+    "importance": 0.05876891042790784
+  },
+  {
+    "feature": "housing_yes",
+    "importance": 0.05846584476194676
+  },
+  {
+    "feature": "day",
+    "importance": 0.05588120455092767
+  },
+  {
+    "feature": "pdays",
+    "importance": 0.05066957244855657
+  },
+  {
+    "feature": "balance",
+    "importance": 0.04792655672955992
+  }
+]

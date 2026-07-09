@@ -1,0 +1,4 @@
+name,phone,severity,wait_mins,vulnerable,vip,category
+Alice,1234567890,4,10,yes,no,billing
+Bob,0987654321,2,0,no,yes,technical
+Charlie,5551234,5,25,yes,yes,complaint

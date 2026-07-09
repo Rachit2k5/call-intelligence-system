@@ -1,0 +1,30 @@
+{
+  "best_model": "Logistic Regression",
+  "trained_at": "2026-07-05T17:41:46.166553+00:00",
+  "leaderboard": [
+    {
+      "Model": "Logistic Regression",
+      "Accuracy": 0.5467,
+      "Precision": 0.4992,
+      "Recall": 0.5599,
+      "F1 Score": 0.5278,
+      "ROC-AUC": 0.5758
+    },
+    {
+      "Model": "Random Forest",
+      "Accuracy": 0.5375,
+      "Precision": 0.4867,
+      "Recall": 0.4033,
+      "F1 Score": 0.4411,
+      "ROC-AUC": 0.5454
+    },
+    {
+      "Model": "XGBoost",
+      "Accuracy": 0.535,
+      "Precision": 0.4858,
+      "Recall": 0.4733,
+      "F1 Score": 0.4795,
+      "ROC-AUC": 0.5473
+    }
+  ]
+}
